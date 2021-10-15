@@ -1,9 +1,9 @@
 
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import axios from 'axios';
+//import axios from 'axios';
 import { Route, Link ,Switch} from 'react-router-dom';
-import schema from './validation/formSchema';
+import schema from './validation/formSchema.js';
 import * as yup from 'yup';
 
 import PizzaLists from './PizzaLists.js';
@@ -51,21 +51,24 @@ const initialFormValues={
   size: '',
   topping1: false,
   topping2: false,
+  topping3: false,
+  topping4: false,
   special: ''
-};
+}
 
+
+  
 
 const initialDisabled = true;
-const initialErrors={
-  name:'',
-  size: '',
-  topping1: false,
-  topping2: false,
-  special: ''
-};
-export default const App = () => {
+
+const App = () => {
   const [formValues, setFormValues] = useState(initialFormValues) 
-  const [formErrors, setFormErrors] = useState(initialErrors) 
+  const [formErrors, setFormErrors] = useState({
+    name:'',
+    size: '',
+  
+    special: ''
+  }) 
   const [disabled, setDisabled] = useState(initialDisabled)     
   const [pizzaOrder, setPizzaOrder] = useState([]); 
   
@@ -90,10 +93,10 @@ export default const App = () => {
 
   const formSubmit = () => {
     const newFriend = {
-      username: formValues.username.trim(),
-      email: formValues.email.trim(),
-      role: formValues.role.trim(),
-      civil: formValues.civil.trim(),
+      name: formValues.name.trim(),
+      special: formValues.special,
+      size: formValues.size.trim(),
+      topping: ['topping1', 'topping2', 'topping3', 'topping4'].filter(top => !!formValues[top])
       
       
     }
@@ -140,6 +143,6 @@ export default const App = () => {
       </Route>
       </Switch>
     </div>
-  );
-};
+  )
+}
 export default App;
