@@ -7,7 +7,7 @@ import schema from './validation/formSchema.js';
 import * as yup from 'yup';
 
 import PizzaLists from './PizzaLists.js';
-import PizzaForm from './PizzaForm.js';
+
 import PizzaList from './PizzaList.js';
 import Pizza from './Pizza';
 import HomePage from './HomePage';
@@ -126,13 +126,14 @@ const App = () => {
           <button >
           <Link to="/">Home</Link>
           </button>
-          <button>
+          {/* <button>
           <Link to="/pizza-form">Pizza Page</Link>     
-          </button>     
+          </button>      */}
         </nav>
       </header>
       <div >
     <h1>Friends App</h1>
+    <section> 
     <Pizza
       values={formValues}
       change={inputChange}
@@ -140,7 +141,7 @@ const App = () => {
       disabled={disabled}
       errors={formErrors}
     />
-
+    </section>
     
   </div>
       <Switch>
