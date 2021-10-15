@@ -119,7 +119,7 @@ function  Pizza(props) {
         <label>Special&nbsp;
           <input
             id ="special-text"
-            value={values.name}
+            value={values.spacial}
             onChange={onChange}
             name='special'
             type='text'

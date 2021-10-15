@@ -12,10 +12,13 @@ import Pizza from './Pizza';
 import HomePage from './HomePage';
 
 const initialFormErrors = {
-  username: '',
-  email: '',
-  role: '',
-  civil: '',
+  name: '',
+  size: '',
+  topping1: '',
+  topping2: '',
+  topping3: '',
+  topping4: '',
+  special: ''
 }
 const pizzaPic = [ 
 {id: 1,url:'https://images.unsplash.com/photo-1574126154517-d1e0d89ef734?ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8cGl6emF8ZW58MHx8MHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=600&q=60',name:'pizze purger',price:'30$',time:'10mins',ingredients:`for 16 servings
@@ -75,6 +78,7 @@ const App = () => {
   useEffect(() => {
     schema.isValid(formValues).then(valid => setDisabled(!valid))
   }, [formValues]);
+
   const validate = (name, value) => {
     yup.reach(schema, name)
       .validate(value)
