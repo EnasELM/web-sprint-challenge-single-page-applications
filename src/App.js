@@ -126,9 +126,9 @@ const App = () => {
           <button >
           <Link to="/">Home</Link>
           </button>
-          {/* <button id= "order-pizza" >
+         <button id= "order-pizza" >
           <Link to="/pizza-form">Pizza Page</Link>     
-          </button>    */}
+          </button>    
         </nav>
       </header>
       <div >
